@@ -17,10 +17,16 @@ namespace DCardenasSemana3
 
         private async void btnAbrirVentanaDos_Clicked(object sender, EventArgs e)
         {
-            String userValidation = "dach";
-            String passValidation = "1996";
-           
-            await Navigation.PushAsync(new Ventana2(txtUser.Text,textPass.Text ));
+            
+           if(txtUser.Text == "admin" && textPass.Text == "12345")
+            {
+                await Navigation.PushAsync(new Ventana2(txtUser.Text, textPass.Text));
+            }
+            else
+            {
+                DisplayAlert("Error", "Acceso no Autorizado", "ok");
+            }
+            
         }
         
     }
